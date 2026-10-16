@@ -1,5 +1,7 @@
 # Tasks API
 
+> **Practice repo** for the DevOps track, Course 3, Lesson 5: *Merge, squash or rebase? Forks and upstream*. Three pull requests were merged here three different ways (a merge commit, squash and merge, rebase and merge), so you can compare the history each leaves with `git log --oneline --graph`. The real project is [devops-tasks-api](https://github.com/agl-learn-examples/devops-tasks-api).
+
 A tiny to-do list REST API in Python and Flask. It is the running example for the **DevOps track on [agentlabs learn](https://learning.myagentlabs.ai)**: every course adds one layer to this same project, from running it on your laptop to Git, Docker, Compose, CI, nginx, the cloud and Kubernetes.
 
 ## Run it
