@@ -20,5 +20,13 @@ def test_create_and_list(client):
     assert client.get("/tasks").get_json() == [{"id": 1, "title": "learn HTTP", "done": False}]
 
 
+def test_filter_by_done(client):
+    client.post("/tasks", json={"title": "a"})
+    client.put("/tasks/1", json={"title": "a", "done": True})
+    client.post("/tasks", json={"title": "b"})
+    assert [t["title"] for t in client.get("/tasks?done=true").get_json()] == ["a"]
+    assert [t["title"] for t in client.get("/tasks?done=false").get_json()] == ["b"]
+
+
 def test_title_required(client):
     assert client.post("/tasks", json={}).status_code == 400
