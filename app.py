@@ -20,8 +20,9 @@ def health():
 def list_tasks():
     with db() as con:
         tasks = [as_dict(r) for r in con.execute("SELECT * FROM tasks")]
-    if request.args.get("done"):
-        tasks = [t for t in tasks if t["done"]]
+    done = request.args.get("done")
+    if done is not None:
+        tasks = [t for t in tasks if t["done"] == (done == "true")]
     return tasks
 
 @app.post("/tasks")
