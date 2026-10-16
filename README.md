@@ -28,7 +28,9 @@ Then, in a second terminal:
 
 ## The done flag
 
-Every task has `done`, which is false when the task is created. Send `"done": true` in a PUT to mark a task finished.
+Every task has `done`, which is false when the task is created. Send `"done": true` in a PUT to mark a task finished:
+
+    curl -X PUT localhost:5000/tasks/1 -H 'Content-Type: application/json' -d '{"title": "learn HTTP", "done": true}'
 
 ## Tests
 
