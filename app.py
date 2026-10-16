@@ -58,3 +58,9 @@ def delete_task(task_id):
     with db() as con:
         cur = con.execute("DELETE FROM tasks WHERE id = ?", (task_id,))
     return ("", 204) if cur.rowcount else ({"error": "not found"}, 404)
+
+@app.get("/tasks/count")
+def count_tasks():
+    with db() as con:
+        n = con.execute("SELECT COUNT(*) FROM tasks").fetchone()[0]
+    return {"count": n}
