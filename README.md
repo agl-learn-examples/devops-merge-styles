@@ -26,6 +26,10 @@ Then, in a second terminal:
 | PUT | /tasks/&lt;id&gt; | replace a task |
 | DELETE | /tasks/&lt;id&gt; | delete a task → 204 |
 
+## The done flag
+
+Every task has `done`, which is false when the task is created. Send `"done": true` in a PUT to mark a task finished.
+
 ## Tests
 
     pytest
